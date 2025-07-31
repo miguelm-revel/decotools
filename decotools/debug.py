@@ -5,3 +5,9 @@ def debug(func):
         return result
     return wrapper
 
+def count_calls(func):
+    func.call_no = 0
+    def wrapper(*args, **kwargs):
+        func.call_no += 1
+        return func(*args, **kwargs)
+    return wrapper

@@ -179,3 +179,33 @@ def hola():
 
 hola()  # Imprime "Hola" tres veces
 ````
+
+## **@memory_usage**
+
+Imprime el uso de memoria al ejecutar la función 
+````python
+from decotools import trace_memory
+
+@trace_memory
+def foo():
+    return [x ** 2 for x in range(100_000)]
+
+foo() # imprime: foo memory usage: 3779.68 KiB
+
+````
+
+## **@count_calls**
+Cuenta las veces que se ejecuta una función 
+````python
+from decotools import count_calls
+
+@count_calls
+def foo():
+    print('hello!')
+
+foo() # hello!
+print(foo.call_no) # 1
+foo() # hello!
+print(foo.call_no) # 2
+
+````

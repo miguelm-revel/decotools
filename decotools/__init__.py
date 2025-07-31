@@ -6,3 +6,5 @@ from .pipeable import *
 from .safe import *
 from .serialize import *
 from .debug import *
+from .memory_usage import *
+from .assert_types import *
