@@ -14,4 +14,3 @@ def cache(func):
             return func_cache[key]
     return wrapper
 
-import time
