@@ -1,11 +1,13 @@
-def safe(func):
-    def wrapper(*args, **kwargs):
-        try:
-            return func(*args, **kwargs)
-        except Exception as e:
-            print(e)
-            return None
-    return wrapper
+def safe(default=None):
+    def decorator(func):
+        def wrapper(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+            except Exception as e:
+                print(e)
+                return default
+        return wrapper
+    return decorator
 
 def partial_safe(*exceptions):
     def decorator(func):
