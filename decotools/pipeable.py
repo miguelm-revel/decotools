@@ -10,5 +10,8 @@ class Pipeable:
     def __rrshift__(self, other):
         return self.expr(other)
 
+    def __call__(self, *args, **kwargs):
+        return self.expr(*args, **kwargs)
+
 def pipeable(func):
     return Pipeable(func)
